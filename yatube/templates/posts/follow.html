@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}Подписки{% endblock %}
+{% block content %}
+  {% include 'posts/includes/switcher.html' with follow=True %}
+  {% for post in page_obj %}
+    {% include 'includes/card.html' with show_link=True show_author=True %}
+  {% endfor %}
+  <div class="d-flex justify-content-center">{% include 'posts/includes/paginator.html' %}</div>
+{% endblock %}

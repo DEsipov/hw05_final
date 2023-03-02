@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Последние обновления на сайте{% endblock %}
+{% block content %}
+  <h1>Последние обновления на сайте</h1>
+  {% include 'posts/includes/switcher.html' %}
+  <div class="container py-5">
+    {% for post in page_obj %}
+      {% include 'includes/card.html' with show_link=True show_author=True %}
+    {% endfor %}
+  </div>
+  <div class="d-flex justify-content-center">{% include 'posts/includes/paginator.html' %}</div>
+{% endblock content %}

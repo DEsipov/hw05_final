@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Записи сообщества {{ group }}{% endblock %}
+{% block content %}
+  {% include 'posts/includes/switcher.html' %}
+  <div class="card bg-light" style="width: 100%">
+    <div class="card-body">
+      <h1 class="card-title">{{ group.title }}</h1>
+      <p class="card-text">{{ group.description|linebreaks }}</p>
+    </div>
+  </div>
+  <div class="container py-5">
+    {% for post in page_obj %}
+      {% include 'includes/card.html' with show_author=True %}
+    {% endfor %}
+  </div>
+  <div class="d-flex justify-content-center">{% include 'posts/includes/paginator.html' %}</div>
+{% endblock content %}
