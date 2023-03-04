@@ -138,9 +138,9 @@ DATE_FORMAT = 'd E Y'
 STATIC_URL = '/static/'
 # Место, откуда брать статику, иначе будет рыскать по каждому приложению,
 # искать внутри папку static
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
 
 # Место, куда collectstatic будет собирать всю статику.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
