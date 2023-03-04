@@ -135,7 +135,7 @@ DATE_FORMAT = 'd E Y'
 
 
 # Указываем URL который будет формироваться.
-STATIC_URL = '/static123/'
+STATIC_URL = '/static/'
 # Место, откуда брать статику, иначе будет рыскать по каждому приложению,
 # искать внутри папку static
 STATICFILES_DIRS = [
@@ -143,7 +143,7 @@ STATICFILES_DIRS = [
 ]
 
 # Место, куда collectstatic будет собирать всю статику.
-STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 MEDIA_URL = '/media/'
