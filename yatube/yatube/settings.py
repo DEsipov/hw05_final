@@ -31,7 +31,6 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'posts:index'
-# LOGOUT_REDIRECT_URL = 'posts:index'
 
 
 INSTALLED_APPS = [
@@ -134,12 +133,17 @@ USE_TZ = True
 
 DATE_FORMAT = 'd E Y'
 
+
+# Указываем URL который будет формироваться.
+STATIC_URL = '/static123/'
+# Место, откуда брать статику, иначе будет рыскать по каждому приложению,
+# искать внутри папку static
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'yatube/static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Место, куда collectstatic будет собирать всю статику.
+STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
 
 
 MEDIA_URL = '/media/'
