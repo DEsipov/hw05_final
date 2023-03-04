@@ -11,7 +11,7 @@ SECRET_KEY = '(pr6$=k)5w28rdp*@q_u!@lw6jpx_x$a@pcpgmv#th_aiqo#pb'
 # Настройки для deploy
 ENABLE_PROD = True
 
-DEBUG = True
+DEBUG = False
 
 if ENABLE_PROD:
     DEBUG = False
@@ -94,17 +94,17 @@ DATABASES = {
     }
 }
 
-if ENABLE_PROD:
-    DATABASES = {
-        'default': {
-            'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-            'NAME': os.getenv('DB_NAME', 'yatube'),
-            'USER': os.getenv('POSTGRES_USER', 'yatube_user'),
-            'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'xxxyyyzzz'),
-            'HOST': os.getenv('DB_HOST', '127.0.0.1'),
-            'PORT': os.getenv('DB_PORT', '5432')
-        }
-    }
+# if ENABLE_PROD:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+#             'NAME': os.getenv('DB_NAME', 'yatube'),
+#             'USER': os.getenv('POSTGRES_USER', 'yatube_user'),
+#             'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'xxxyyyzzz'),
+#             'HOST': os.getenv('DB_HOST', '127.0.0.1'),
+#             'PORT': os.getenv('DB_PORT', '5432')
+#         }
+#     }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -136,11 +136,12 @@ DATE_FORMAT = 'd E Y'
 
 # Указываем URL который будет формироваться.
 STATIC_URL = '/static/'
+
 # Место, откуда брать статику, иначе будет рыскать по каждому приложению,
 # искать внутри папку static
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static_backup')
+]
 
 # Место, куда collectstatic будет собирать всю статику.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
